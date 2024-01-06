@@ -1,0 +1,40 @@
+<div class="container" *ngIf="products.length !=0">
+    <div class="row"   >
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0" *ngFor="let item of products">
+              <div class="col-md-4">
+                <img src="{{item.image}}" class="img-fluid rounded-start" >
+                <p class="card-text">{{item.description}}</p>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.title}}</h5>
+                  <p class="card-text">{{item.price}}</p>
+                  <button (click)="removeProduct(item)">Sil</button>
+                  <div><strong>{{allProdutcs}}</strong></div>
+                  <button (click)="setProduct(item)">Ekle</button>
+                  <p class="card-text">COUNT: {{item.quantity || 0}}</p>
+                  <p class="card-text">TOTAL: {{item.priceTotal | currency}}</p>
+                  <button (click)="increaseQuantity(item)" class="btn btn-success">+</button>
+                  <button (click)="decreaseQuantity(item)" class="btn btn-danger">-</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="products.length==0">
+    <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Cart is Empty</h5>
+          <p class="card-text">Add an item</p>
+          <a href="#" class="btn btn-primary">Start Shopping</a>
+        </div>
+    </div>
+</div>
+

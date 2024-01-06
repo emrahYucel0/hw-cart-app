@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="card" style="width: 18rem;" *ngFor="let product of productList">
+            <img src="{{product.image}}" class="card-img-top" alt="..." style="height: 20rem;" >
+            <div class="card-body">
+              <h4 class="card-title">{{product.title}}</h4>
+              <h5 class="card-text">{{product.category}}</h5>
+              <p class="card-text">PRICE: {{product.price | currency}}</p>
+              <p class="card-text">RATE: {{product.rating.rate}}</p>
+              <p class="card-text">COUNT: {{product.rating.count}}</p>
+              <button class="btn btn-outline-success" (click)="addToCart(product)" >Sepete Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="notification" class="notification show">
+    {{ notification }}
+</div>
+
+
+  
